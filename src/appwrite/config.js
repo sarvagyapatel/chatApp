@@ -27,16 +27,15 @@ export class AppwriteService {
     }
   }
 
-  async updatePost(id, { done, userId, task }) {
+  async updateChats(id, {chats, chatOwner}) {
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
-        conf.appwriteCollectionId,
+        conf.appwriteCollectionIdAllChatPairs,
         id,
         {
-          done,
-          userId,
-          task,
+          chats,
+          chatOwner,
         }
       );
     } catch (error) {
